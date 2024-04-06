@@ -1,0 +1,2 @@
+language = "python3"
+run = "flask run -h 0.0.0.0 -p 8080 --reload"
