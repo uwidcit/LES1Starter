@@ -1,11 +1,10 @@
-entrypoint = "main.py"
-modules = ["python-3.8:v2-20230907-3d66d15"]
+modules = ["web", "python-3.8", "nix", "bash"]
 
 hidden = [".pythonlibs"]
 run = "flask run -h 0.0.0.0 -p 8080 --reload"
 
 [nix]
-channel = "stable-23_05"
+channel = "stable-24_05"
 
 [env]
 LANG = "en_US.UTF-8"
@@ -13,3 +12,6 @@ LANG = "en_US.UTF-8"
 [[ports]]
 localPort = 8080
 externalPort = 80
+
+[deployment]
+run = ["sh", "-c", "flask run -h 0.0.0.0 -p 8080 --reload"]
